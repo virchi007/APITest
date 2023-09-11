@@ -1,9 +1,17 @@
 package API;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UnsuccessReg {
     private String error;
+    @JsonCreator
 
-    public UnsuccessReg(String error) {
+    public UnsuccessReg(@JsonProperty("error")String error) {
+        this.error = error;
+    }
+
+    public void setError(String error) {
         this.error = error;
     }
 
