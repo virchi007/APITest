@@ -127,7 +127,7 @@ public class ReqresTest {
                 .put("api/users/2")
                 .then().log().all()
                 .extract().as(UserTimeResponse.class);
-        String regex = "(.{5})$";       //
+        String regex = "(.{3}\\..*)$";       // "\\..*$"
         String currentTime = Clock.systemUTC().instant().toString().replaceAll(regex, "");    //заменяем последние 5 в
         Assert.assertEquals(currentTime, response.getUpdatedAt().replaceAll(regex, ""));
         System.out.println(response.getUpdatedAt().replaceAll(regex, ""));
